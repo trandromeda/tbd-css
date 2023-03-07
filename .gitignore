@@ -1,0 +1,6 @@
+### typical frontend stuff ###
+*.log
+logs
+.parcel-cache
+dist
+node_modules
