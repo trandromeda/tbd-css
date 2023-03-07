@@ -1,13 +1,14 @@
 {
   "name": "my-project",
   "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": "> 0.5%, not dead",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.9.5",
+    "@vanilla-extract/sprinkles": "^1.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
