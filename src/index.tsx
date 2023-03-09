@@ -1,15 +1,19 @@
+import "./styles/reset.css";
+
 import * as React from "react";
 import { render } from "react-dom";
-import { container, accentText, responsiveText } from "./index.css";
-import { blue } from './accent.css'
-
-console.log(container);
+import { container, responsiveText } from "./styles/index.css";
+import { Box } from "./components/Box";
 
 const App = () => {
   return (
-    <div className={container}>
-        <h1 className={accentText}>TBD</h1>
-      <p className={responsiveText}>A bunch of words.</p>
+    <div>
+      <h1>TBD</h1>
+      <p className={responsiveText}>A bunch of words and a box.</p>
+      <Box className={container}>Some stuff in the box</Box>
+      <Box as="ul" className="my-list" paddingTop="medium">
+        <Box as="li">Item 1</Box>
+      </Box>
     </div>
   );
 };
@@ -24,7 +28,7 @@ render(<App />, document.getElementById("app"));
 // if (app && containerEl) {
 //   containerEl.innerHTML = `
 //             <h1>TBD CSS</h1>
-//             <p class="${blue}"> 
+//             <p class="${blue}">
 // Commodo anim enim anim esse id laborum ullamco consectetur cupidatat. Sint irure deserunt nisi nisi consequat eiusmod et exercitation irure reprehenderit exercitation. Cillum eiusmod cillum ipsum minim adipisicing ea aliqua. Ipsum dolore cupidatat velit occaecat nulla esse duis duis cupidatat do mollit cupidatat culpa. Quis dolore elit labore commodo fugiat deserunt adipisicing.
 
 // Duis nostrud laborum consectetur ex mollit et nisi tempor labore. Voluptate nisi sunt velit id cupidatat ad labore veniam cillum fugiat consectetur. Excepteur reprehenderit do irure tempor do veniam nulla dolore. Cupidatat voluptate exercitation laborum non mollit incididunt eu ipsum culpa ut proident nulla est. Deserunt in sit ex ut ut magna tempor aliqua aute aliqua exercitation elit.

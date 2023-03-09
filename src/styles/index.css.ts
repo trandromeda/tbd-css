@@ -1,11 +1,6 @@
 import { createContainer, style } from "@vanilla-extract/css";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 import { containerName, sprinkles } from "./sprinkles.css";
-import { accentVar } from "./accent.css";
-
-export const accentText = style({
-  color: accentVar,
-});
 
 // export const container = style({
 //   padding: 10,
