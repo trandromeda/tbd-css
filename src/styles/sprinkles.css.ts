@@ -103,7 +103,7 @@ const pageContainerProperties = defineProperties({
     width: {
       sm: "240px",
       md: "324px",
-      lg: "50%",
+      lg: "25%",
     },
   },
 });

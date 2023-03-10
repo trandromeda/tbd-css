@@ -30,9 +30,7 @@ const App = () => {
       <h1>Neapolitan</h1>
 
       <div className={page}>
-        <Box>
-            I'm just a regular Box aka {`<div>`}
-        </Box>
+        <Box>I'm just a regular Box aka {`<div>`}</Box>
         <Box as="ul" className="my-list" paddingTop="medium">
           <Box as="li">{`I'm a box that was transformed into a <li>`}</Box>
         </Box>
@@ -62,12 +60,22 @@ const App = () => {
         </Box>
 
         <hr></hr>
-
+        <h2>I'm a vanilla web component</h2>
         <vanilla-example>
-          <h1 slot="msgtext">Hi :3</h1>
-          <p>I was created from scratch.</p>
+          <img slot="image" src={image} alt="Image of palace in Japan" />
+          <div slot="title">
+            {title}
+          </div>
+          <div slot="region">{region}</div>
+          <div slot="dates">{dates}</div>
+          <div slot="price">
+            {price} {unit}
+          </div>
+          <div slot="rating">{ratingVal}</div>
         </vanilla-example>
 
+        <hr></hr>
+        <h2>I'm a Lit web component</h2>
         <lit-example></lit-example>
       </div>
     </div>

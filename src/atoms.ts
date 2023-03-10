@@ -12,8 +12,6 @@ export interface Atoms extends Sprinkles {
 export function atoms(atoms: Atoms) {
     const { resetElement, className, ...rest} = atoms;
     const sprinklesClassNames = sprinkles(rest);
-    console.log('el + className: ', resetElement, className)
-    // console.log(className)
 
     return clsx(
         sprinklesClassNames,
@@ -24,7 +22,6 @@ export function atoms(atoms: Atoms) {
 }
 
 const keys = Array.from(sprinkles.properties.keys());
-console.log(keys)
 export const extractAtoms = <P extends object>(props: P) => [
   pick(props, keys),
   omit(props, keys),
