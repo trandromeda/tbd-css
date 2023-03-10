@@ -8,5 +8,24 @@
     <div id="app">
     </div>
     <script type="module" src="index.tsx"></script>
+
+    <template id="hello-world">
+
+        <style>
+          p {
+            text-align: center;
+            font-weight: normal;
+            padding: 0.5em;
+            margin: 1px 0;
+            background-color: #eee;
+            border: 1px solid #666;
+          }
+        </style>
+      
+      <slot name="msgtext"></slot>
+      <slot></slot>
+
+      
+      </template>
   </body>
 </html>

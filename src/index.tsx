@@ -4,16 +4,26 @@ import * as React from "react";
 import { render } from "react-dom";
 import { container, responsiveText } from "./styles/index.css";
 import { Box } from "./components/Box";
+import "./components/vanilla-example.component";
+import "./components/lit-example.component";
 
 const App = () => {
   return (
     <div>
       <h1>TBD</h1>
-      <p className={responsiveText}>A bunch of words and a box.</p>
-      <Box className={container}>Some stuff in the box</Box>
-      <Box as="ul" className="my-list" paddingTop="medium">
-        <Box as="li">Item 1</Box>
+      <Box className={container}>
+        {`I'm a Box! (or just a <div>`}
+        <Box as="ul" className="my-list" paddingTop="medium">
+          <Box as="li"z>{`I'm a box that was transformed into a <li>`}</Box>
+        </Box>
       </Box>
+
+      <vanilla-example>
+        <h1 slot="msgtext">Hi :3</h1>
+        <p>I was created from scratch.</p>
+      </vanilla-example>
+
+      <lit-example></lit-example>
     </div>
   );
 };
