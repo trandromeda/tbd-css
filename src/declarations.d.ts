@@ -4,11 +4,16 @@ declare namespace JSX {
           React.HTMLAttributes<HTMLElement>,
           HTMLElement
         >;
-      "lit-example": MyElementAttributes;
+      "lit-example": LitExampleElementAttributes;
       }
 
-      interface MyElementAttributes extends React.HTMLAttributes {
-        name?: string;
+      interface LitExampleElementAttributes extends React.HTMLAttributes {
+        img?: string;
+        title?: string;
+        region?: string;
+        dates?: string;
+        price?: string;
+        rating?: string;
       }
   }
 
