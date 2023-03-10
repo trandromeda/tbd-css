@@ -1,21 +1,28 @@
-import { createContainer, style } from "@vanilla-extract/css";
-import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
-import { containerName, sprinkles } from "./sprinkles.css";
+import { style } from "@vanilla-extract/css";
+import { cardContainer, pageContainer, sprinkles } from "./sprinkles.css";
 
 // export const container = style({
 //   padding: 10,
 //   backgroundColor: '#f2f2f2'
 // });
 
-
-export const container = style([
+export const page = style([
   {
-    containerName,
+    containerName: pageContainer,
+    containerType: "inline-size",
+  },
+]);
+
+export const card = style([
+  {
+    containerName: cardContainer,
     containerType: "inline-size",
   },
   sprinkles({
-    display: "block",
-    padding: "medium",
+    display: "flex",
+    flexDirection: "column",
+    gap: "1em",
+    width: ["sm", "md", "lg"],
     color: {
       lightMode: "dark-text",
       darkMode: "light-text",
@@ -24,20 +31,45 @@ export const container = style([
       lightMode: "light-bg",
       darkMode: "dark-bg",
     },
-    opacity: 0.5,
   }),
 ]);
 
+export const cardContents = style([
+  {
+    gridTemplateColumns: "minmax(0, 1fr) max-content",
+  },
+  sprinkles({
+    display: "grid",
+    gap: "0.25em"
+  }),
+]);
+
+/** TODO just for testing, remove */
 export const responsiveText = sprinkles({
-    fontSize: {
-        small: 'small',
-        medium: 'medium',
-        large: 'large'
-    }
+  fontSize: [10, 18, 22],
+});
+
+export const rating = style({
+    gridColumn: "-2 / -1",
+    gridRow: "1",
+    justifySelf: "end"
 })
 
-// fontSize: {
-//     small: 'small',
-//     medium: 'medium',
-//     large: 'large'
-//   }
+export const firstCol = sprinkles({
+    gridColumn: "1 / -1"
+})
+
+export const img = style([
+  {
+    width: "100%",
+    height: "100%",
+    aspectRatio: "1.2 / 1"
+  },
+  sprinkles({
+    borderRadius: "10px",
+  }),
+]);
+
+export const bold = style({
+    fontWeight: 600
+})

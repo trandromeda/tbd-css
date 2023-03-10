@@ -1,15 +1,16 @@
 import { createContainer, createVar, style } from "@vanilla-extract/css";
 import { defineProperties, createSprinkles } from "@vanilla-extract/sprinkles";
 
-export const containerName = createContainer();
+export const cardContainer = createContainer();
+export const pageContainer = createContainer();
 const alpha = createVar();
 
 const colours = {
   "light-text": "#FFFFFF",
-  "dark-text": "#59594A",
+  "dark-text": "rgb(34, 34, 34)",
   accent: "#801A86",
   "dark-bg": "#000000",
-  "light-bg": "#EDDDD4",
+  "light-bg": "#FFFFFF",
 };
 
 const space = {
@@ -17,6 +18,13 @@ const space = {
   small: "4px",
   medium: "8px",
   large: "16px",
+};
+
+const fontSizes = {
+  10: "10px",
+  14: "14px",
+  18: "18px",
+  22: "22px",
 };
 
 const colourProperties = defineProperties({
@@ -46,6 +54,12 @@ const colourProperties = defineProperties({
   },
 });
 
+const unresponsiveProperties = defineProperties({
+  properties: {
+    borderRadius: ["5px", "10px"],
+  },
+});
+
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
@@ -53,15 +67,17 @@ const responsiveProperties = defineProperties({
     desktop: { "@media": "screen and (min-width: 1024px)" },
   },
   defaultCondition: "mobile",
-  responsiveArray: ['mobile', 'tablet', 'desktop'],
+  responsiveArray: ["mobile", "tablet", "desktop"],
   properties: {
     display: ["none", "block", "flex", "grid"],
     flexDirection: ["row", "column"],
+    gap: ["0.25em", "0.5em", "1em"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
     paddingRight: space,
-    nonSense: space,
+    marginTop: space,
+    gridColumn: ["1 / -1"]
   },
   shorthands: {
     padding: ["paddingBottom", "paddingTop", "paddingLeft", "paddingRight"],
@@ -70,29 +86,32 @@ const responsiveProperties = defineProperties({
   },
 });
 
-const containerProperties = defineProperties({
+const pageContainerProperties = defineProperties({
   conditions: {
     small: {},
     medium: {
-      "@container": `${containerName} (min-width: 768px)`,
+      "@container": `${pageContainer} (min-width: 768px)`,
     },
     large: {
-      "@container": `${containerName} (min-width: 1024px)`,
+      "@container": `${pageContainer} (min-width: 1024px)`,
     },
   },
   defaultCondition: "small",
+  responsiveArray: ["small", "medium", "large"],
   properties: {
-    fontSize: {
-      small: "10px",
-      medium: "16px",
-      large: "20px",
+    fontSize: fontSizes,
+    width: {
+      sm: "240px",
+      md: "324px",
+      lg: "50%",
     },
   },
 });
 
 export const sprinkles = createSprinkles(
+  unresponsiveProperties,
   responsiveProperties,
-  containerProperties,
+  pageContainerProperties,
   colourProperties
 );
 
