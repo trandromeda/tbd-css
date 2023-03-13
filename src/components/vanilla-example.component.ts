@@ -17,13 +17,12 @@ export default class VanillaExample extends HTMLElement {
   }
 
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: "closed" });
+    console.log('className: ', this.className);
+    const shadow = this.attachShadow({ mode: "open" });
     const template = (
       document.getElementById("vanilla") as HTMLTemplateElement
     ).content.cloneNode(true) as HTMLTemplateElement;
 
-    // const msg = `Hi, ${this.message}`
-    // Array.from(template.querySelectorAll('slot.hw-text')).forEach(n => n.textContent = msg)
     shadow.append(template);
   }
 

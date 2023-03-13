@@ -13,11 +13,6 @@ import {
  */
 @customElement("lit-example")
 class LitExample extends LitElement {
-  static shadowRootOptions = {
-    ...LitElement.shadowRootOptions,
-    open: true,
-  };
-
   @property()
   img: string = "";
   @property()
@@ -31,10 +26,14 @@ class LitExample extends LitElement {
   @property()
   rating: string = "";
 
+  // this prevents rendering to shadow root, breaking encapsulation
+  createRenderRoot() {
+    return this;
+}
+
   /** Linking to external stylesheets is NOT recommended */
   render() {
     return html`
-      <link rel="stylesheet" href="/index.73446838.css">
       <div class=${card}>
         <img src=${this.img} />
         <div class=${cardContents}>
