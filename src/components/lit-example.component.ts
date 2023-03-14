@@ -13,23 +13,30 @@ import {
  */
 @customElement("lit-example")
 class LitExample extends LitElement {
-  @property()
-  img: string = "";
-  @property()
-  title: string = "";
-  @property()
-  region: string = "";
-  @property()
-  dates: string = "";
-  @property()
-  price: string = "";
-  @property()
-  rating: string = "";
+    static styles = css`
+        :host {
+            display: block;
+            background-color: var(--custom-bg, red);
+        }
+    `
+
+    @property()
+    img: string = "";
+    @property()
+    title: string = "";
+    @property()
+    region: string = "";
+    @property()
+    dates: string = "";
+    @property()
+    price: string = "";
+    @property()
+    rating: string = "";
 
   // this prevents rendering to shadow root, breaking encapsulation
-  createRenderRoot() {
-    return this;
-}
+//   createRenderRoot() {
+//     return this;
+// }
 
   /** Linking to external stylesheets is NOT recommended */
   render() {
